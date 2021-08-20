@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+body {
+    font-family: 'Space Mono', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: hsl(185, 41%, 84%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.header {
+    margin-bottom: 50px;
+}
+
+.main {
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 1.5rem;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.container label {
+    display: inline-block;
+    font-size: 14px;
+    color: hsl(186, 14%, 43%);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    font-family: 'Space Mono', monospace;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    background-color: hsl(189, 41%, 97%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 2px solid hsl(189, 41%, 97%);
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.input-container:hover, .input-container:focus-within, .input-container-checked {
+    border-color: hsl(172, 67%, 45%);
+}
+
+.input-container input[type=number] {
+    width: 100%;
+    font-size: 24px;
+    color: hsl(183, 100%, 15%);
+    font-weight: 700;
+    background-color: hsl(189, 41%, 97%);
+    cursor: pointer;
+    border: none;
+    text-align: right;
+}
+
+.input-container input[type=number]::placeholder {
+    color: hsl(185, 41%, 84%);
+}
+
+.tip-container {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    gap: 10px;
+}
+
+.radioBtn {
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.radioBtn input[type=radio] {
+    display: none;
+}
+
+.radioBtn label {
+    box-sizing: border-box;
+    display: block;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: hsl(183, 100%, 15%);
+    color: hsl(0, 0%, 100%);
+    font-size: 24px;
+    text-align: center;
+}
+
+.radioBtn input:checked+label {
+    background-color: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+}
+
+.radioBtn:hover>label {
+    background-color: #A1E7E0;
+    color: hsl(183, 100%, 15%);
+}
+
+.display {
+    background-color: hsl(183, 100%, 15%);
+    border-radius: 1.5rem;
+    padding: 40px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.error-message {
+    visibility: hidden;
+    text-align: right;
+    color: #C67962;
+    font-size: 14px;
+    font-weight: 700;
+    float: right;
+}
+
+.error-message--show {
+    visibility: visible;
+}
+
+.error-message--show+.input-container {
+    border-color: #C87F6E;
+}
+
+.error-message--show+.input-container:hover {
+    border-color: #C87F6E;
+}
+
+.display__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.display__container>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div[class*="-wrapper"] div>p {
+    margin: 0;
+    color: hsl(0, 0%, 100%);
+    line-height: 1;
+    font-weight: 600;
+}
+
+div[class*="-wrapper"] div>span {
+    color: hsl(186, 14%, 43%);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.tip-amount, .total {
+    font-size: 48px;
+    font-weight: bold;
+    color: #2BC2B1;
+    margin: 0 0 10px 0;
+}
+
+.btn-reset {
+    font-size: 24px;
+    color: hsl(183, 100%, 15%);
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-color: #26C2AD;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-reset:disabled {
+    background-color: #0D686D;
+    cursor: default;
+}
+
+.btn-reset:hover {
+    background-color: #9FE8DF;
+}
+
+.btn-reset:disabled:hover {
+    background-color: #0D686D;
+}
+
+.btn-reset:active {
+    transform: scale(99.5%);
+}
+
+@media screen and (max-width: 800px) {
+    .main {
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (max-width: 460px) {
+    .main {
+        padding: 30px 15px;
+    }
+    .tip-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+    }
+}
